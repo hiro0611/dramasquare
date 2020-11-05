@@ -160,7 +160,7 @@ class DramasController extends Controller
         $request->validate([
             'review_title' => 'required|string|max:30',
             'review_score' => 'required',
-            'review_comment' => 'required|string|max:500'
+            'review_comment' => 'required|string|max:1000'
         ]);
 
         $reviews = new Review;
