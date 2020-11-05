@@ -7,16 +7,17 @@
     <div class="row rounded" style="background: rgba(230, 213, 184, 0.8);">
         <!--bg-color: #e6d5b8-->
 
-        <div class="col-3" class="sidebar_fixed">
+        <div class="col-3">
             <form action="{{ route('dramas.search') }}" method="post" class="mt-3 pb-2 rounded">
+                @csrf
                 <blockquote class="blockquote text-center">
                     <h5 class="m-auto w-75" style="border-left: 12px solid #a8dda8">Search by Category</h5>
                     <footer class="blockquote-footer">カテゴリー検索
                 </blockquote>
 
-                <select type="text" id="category_name" class="form-control mt-3" name="category_name" value="{{ old('category_name') }}" autocomplete="category_name">
+                <select type="text" id="category_name" class="form-control mt-3" name="category_name" autocomplete="category_name">
                     @foreach($category_names as $key => $value)
-                    <option name="category_name">{{ $value }}</option>
+                    <option>{{ $value }}</option>
                     @endforeach
                 </select>
 
