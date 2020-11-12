@@ -29,5 +29,6 @@
     "Review Comment": "感想",
     "Post Review": "レビューを投稿しました",
     "validation.required": "入力必須です",
-    "validation.max:250": "255文字以内で入力ください"
+    "validation.max:250": "255文字以内で入力ください",
+    "validation.min.string": "8文字以上の英数字で入力ください"
 }
