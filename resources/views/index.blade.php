@@ -38,8 +38,8 @@
 
                     <p class="mb-0">{{ ($review -> name) }}</p>
                     <p class="mb-0 text-secondary">{{ ($review -> created_at) }}</p>
-                    <p class="mb-0 font-weight-bold">{{ ($review -> drama_title) }}</p>
-                    <p class="mb-0"><a href="{{ route('dramas.detail', $review->drama_id) }}">{{ ($review -> review_title) }}</a></p>
+                    <p class="mb-0">{{ ($review -> drama_title) }}</p>
+                    <p class="mb-0 font-italic"><a href="{{ route('dramas.detail', $review->drama_id) }}">{{ ($review -> review_title) }}</a></p>
                     <p>⭐️ {{ ($review -> review_score) }}</p>
 
                     @endforeach
@@ -56,7 +56,7 @@
                 @if(isset($results))
                 @foreach($results as $result)
                 <div class="col-3 mb-5">
-                    <div class="card border-0" style="width: 12rem; background: #e3dfc8;">
+                    <div class="card border-0" style="width: 12rem; background: #ffffff;">
                         <div class=" card-body p-0">
 
                             <!--画像-->
@@ -93,7 +93,7 @@
                 @elseif(isset($dramas))
                 @foreach($dramas as $drama)
                 <div class="col-3 mb-5">
-                    <div class="card border-0" style="width: 12rem; background: #e3dfc8;">
+                    <div class="card border-0" style="width: 12rem; background: #ffffff;">
                         <div class="card-body p-0">
 
                             <!--画像-->
