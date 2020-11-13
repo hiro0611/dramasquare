@@ -12,7 +12,7 @@ class DramasController extends Controller
     public function new()
     {
         $category_names = config('category');
-        return view('dramas.new')->with(['category_names' => $category_names]);
+        return view('Dramas.new')->with(['category_names' => $category_names]);
     }
 
     //新規登録ポスト
@@ -99,7 +99,7 @@ class DramasController extends Controller
 
         $category_names = config('category');
         $dramas = Drama::find($id);
-        return view('dramas.update', ['dramas' => $dramas])->with(['category_names' => $category_names]);
+        return view('Dramas.update', ['dramas' => $dramas])->with(['category_names' => $category_names]);
     }
 
     //編集内容ポスト
@@ -144,14 +144,14 @@ class DramasController extends Controller
         //データベースreviews内の指定ドラマidと一致するレビューを全て取得
         $reviews = Review::where('drama_id', $id)->latest()->paginate(5);
 
-        return view('dramas.detail', ['dramas' => $dramas], ['reviews' => $reviews]);
+        return view('Dramas.detail', ['dramas' => $dramas], ['reviews' => $reviews]);
     }
 
     //レビュー画面
     public function review($id)
     {
         $dramas = Drama::find($id);
-        return view('dramas.review', ['dramas' => $dramas]);
+        return view('Dramas.review', ['dramas' => $dramas]);
     }
 
     //レビューをポスト
