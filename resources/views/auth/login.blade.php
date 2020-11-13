@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card p-2" style="background: rgba(230, 213, 184, 0.8);">
-                <h4 class="text-center p-2">{{ __('Login') }}</h4>
+                <h4 class="text-center p-4">{{ __('Login') }}</h4>
 
                 <div class="card-body ml-5">
                     <form method="POST" action="{{ route('login') }}">
@@ -43,8 +43,8 @@
                         </div>
 
                         <!--ログイン情報記憶-->
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-3">
+                        <div class="form-group row mb-5">
+                            <div class="col-md-6">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
@@ -62,7 +62,7 @@
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                <a class="btn btn-link pl-0" href="{{ route('password.request') }}">
+                                <a class="btn btn-link pl-0 mt-4" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
                                 </a>
                                 @endif
