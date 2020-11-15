@@ -114,11 +114,13 @@
                             <!--<a href="{{ route('dramas.edit',$drama->id ) }}" class="btn btn-warning">{{ __('Go Edit')  }}</a>-->
 
                             <!--削除ボタン-->
-                            <!--<form action="{{ route('dramas.delete', $drama->id ) }}" method="post" class="d-inline">
+                            @if($drama['user_id'] == Auth::id())
+                            <form action="{{ route('dramas.delete', $drama->id ) }}" method="post" class="d-inline">
 
                                 @csrf
                                 <button class="btn btn-danger" onclick='return confirm("削除しますか？");'>{{ __('Go Delete') }}</button>
-                            </form>-->
+                            </form>
+                            @endif
                         </div>
                     </div>
                 </div>
