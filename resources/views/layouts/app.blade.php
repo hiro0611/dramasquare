@@ -79,7 +79,7 @@
         </nav>
 
         @if (session('flash_message'))
-        <div class="alert alert-secondary text-center" v-bind:class="{'is-active': isActive}" style="opacity: 0.8;">
+        <div class="alert alert-light text-center" v-bind:class="{'is-active': isActive}">
             {{ session('flash_message') }}
         </div>
         @endif

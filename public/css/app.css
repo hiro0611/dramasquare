@@ -5615,6 +5615,12 @@ a.badge-dark.focus {
   color: #818182;
   background-color: #fefefe;
   border-color: #fdfdfe;
+  opacity: 0;
+  transition: all .8s;
+}
+
+.alert-light.is-active{
+  opacity: 0.8;
 }
 
 .alert-light hr {
