@@ -1,12 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-@section('body_style', 'background: url("../images/new_cinema.jpg");')
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="card p-4" style="background: rgba(230, 213, 184, 0.8);">
-                <h4 class="text-center">{{ __('Drama Register')}}</h4>
+            <div class="card p-4 shadow" style="background-color: #fff8cd;">
+                <h4 class="text-center p-4 text-secondary" style="letter-spacing: 10px">{{ __('Drama Register')}}</h4>
 
                 <div class="card-body ml-5">
                     <form method="POST" action="{{ route('dramas.new') }}" enctype="multipart/form-data">

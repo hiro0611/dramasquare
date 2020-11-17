@@ -21,10 +21,10 @@
 
 <body style="@yield('body_style', 'default' )">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light" style="background-color: #e6d5b8; opacity: 0.8;">
+        <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #000000;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <h4 style="font-family: 'Acme', sans-serif; font-size: 1.5rem; letter-spacing: 1px">Drama Square</h4>
+                    <h4 style="font-family: 'Acme', sans-serif; font-size: 1.5rem; letter-spacing: 3px">Drama Square</h4>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -41,19 +41,17 @@
                         <!-- Authentication Links -->
                         @guest
                         <li class="nav-item btn-link">
-                            <a class="nav-link text-dark" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link text-light" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                         @if (Route::has('register'))
                         <li class="nav-item btn-link">
-                            <a class="nav-link text-dark" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link text-light" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                         @endif
+
                         @else
-                        <!--<li class="nav-item">
-                            <a class="nav-link" href="{{ route('dramas.new') }}">{{ __('Drama New') }}</a>
-                        </li>-->
                         <li class="nav-item dropdown btn-link">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="font-size: 1.1rem">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="font-size: 1.1rem">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
@@ -84,10 +82,10 @@
         </div>
         @endif
 
-        <main class="py-5">
+        <main class="py-5 bg-white">
             @yield('content')
         </main>
-        <div class="pb-0 text-light text-center">
+        <div class="pb-0 text-center text-light" style="background-color: #000000;">
             Copyright © 2020 Hiroki All Rights Reserved.
         </div>
     </div>

@@ -1,18 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-@section('body_style', 'background: url("../images/detail_cinema2.jpg");')
 <div class="container">
 
-    <div class="row rounded" style="background: rgba(230, 213, 184, 0.8);">
-        <!--bg-color: #e6d5b8-->
+    <div class="row">
 
         <div class="col-3">
             <form action="{{ route('dramas.search') }}" method="post" class="mt-3 pb-2 rounded">
                 @csrf
                 <blockquote class="blockquote text-center">
-                    <h5 class="m-auto w-75" style="border-left: 12px solid #a8dda8">Search by Category</h5>
-                    <footer class="blockquote-footer">カテゴリー検索
+                    <h5 class="m-auto w-75" style="border-left: 12px solid #a8dda8;">Search by Category</h5>
+                    <footer class="blockquote-footer mt-2">カテゴリー検索
                 </blockquote>
 
                 <select type="text" id="category_name" class="form-control mt-3" name="category_name" autocomplete="category_name">
@@ -30,17 +28,18 @@
             <div class="sidebar_content mt-5 p-2">
                 <blockquote class="blockquote text-center">
                     <h5 class="m-auto" style="border-left: 12px solid #ffa5a5; width: 40%;">Reviews</h5>
-                    <footer class="blockquote-footer">最新レビュー
+                    <footer class="blockquote-footer mt-2">最新レビュー
                 </blockquote>
 
-                <div class="card p-1 shadow-lg" style="background: #ebebeb">
+                <div class="card p-3 border-0 bg-list mt-3">
                     @foreach($reviews as $review)
 
                     <p class="mb-0">{{ ($review -> name) }}</p>
                     <p class="mb-0 text-secondary">{{ ($review -> created_at) }}</p>
-                    <p class="mb-0">{{ ($review -> drama_title) }}</p>
-                    <p class="mb-0 font-italic"><a href="{{ route('dramas.detail', $review->drama_id) }}">{{ ($review -> review_title) }}</a></p>
-                    <p>⭐️ {{ ($review -> review_score) }}</p>
+                    <p class="mb-0 font-weight-bold">{{ ($review -> drama_title) }}</p>
+                    <p class="mb-0 font-italic"><a href="{{ route('dramas.detail', $review->drama_id) }}">{{ ($review -> review_title) }}
+                        </a></p>
+                    <p class="text-secondary">⭐️ {{ ($review -> review_score) }}</p>
 
                     @endforeach
                 </div>
@@ -56,12 +55,12 @@
                 @if(isset($results))
                 @foreach($results as $result)
                 <div class="col-3 mb-5">
-                    <div class="card border-0" style="width: 12rem; background: #ffffff;">
-                        <div class=" card-body p-0">
+                    <div class="card border-0" style="width: 12rem;">
+                        <div class="card-body p-0 touch-list">
 
                             <!--画像-->
                             <a href="{{ route('dramas.detail', $result->id) }}">
-                                <img src="/uploads/{{ $result -> drama_image }}" class="rounded" style="height:250px; width:100%">
+                                <img src="/uploads/{{ $result -> drama_image }}" class="touch-image" style="height:250px; width:100%">
                             </a>
 
                             <!--カテゴリー-->
@@ -70,8 +69,6 @@
                             <!--タイトル-->
                             <h6 class="card-title m-0">{{ ($result -> drama_title) }}</h6>
 
-                            <!--レビュー画面へ-->
-                            <!--<a href="{{ route('dramas.detail', $result->id) }}" class="btn btn-primary">{{ __('Go Review') }}</a>-->
 
                             <!--編集ボタン-->
                             <!--<a href="{{ route('dramas.edit',$result->id ) }}" class="btn btn-warning">{{ __('Go Edit')  }}</a>-->
@@ -87,18 +84,18 @@
                 </div>
                 @endforeach
                 <div class="d-flex justify-content-center m-5 col-10">
-                    {{ $results->links() }}
+                    {{ $results->links('vendor.pagination.bootstrap-4') }}
                 </div>
 
                 @elseif(isset($dramas))
                 @foreach($dramas as $drama)
                 <div class="col-3 mb-5">
-                    <div class="card border-0" style="width: 12rem; background: #ffffff;">
-                        <div class="card-body p-0">
+                    <div class="card border-0" style="width: 12rem;">
+                        <div class="card-body p-0 touch-list">
 
                             <!--画像-->
                             <a href="{{ route('dramas.detail', $drama -> id) }}">
-                                <img src="/uploads/{{ $drama -> drama_image }}" class="rounded" style="height:250px; width:100%">
+                                <img src="/uploads/{{ $drama -> drama_image }}" class="touch-image" style="height:250px; width:100%">
                             </a>
 
                             <!--カテゴリー-->
@@ -106,9 +103,6 @@
 
                             <!--タイトル-->
                             <h6 class="card-title m-0">{{ ($drama -> drama_title) }}</h6>
-
-                            <!--レビュー画面へ-->
-                            <!--<a href="{{ route('dramas.detail', $drama->id) }}" class="btn btn-primary">{{ __('Go Review') }}</a>-->
 
                             <!--編集ボタン-->
                             <!--<a href="{{ route('dramas.edit',$drama->id ) }}" class="btn btn-warning">{{ __('Go Edit')  }}</a>-->
@@ -127,7 +121,7 @@
                 @endforeach
 
                 <div class="d-flex justify-content-center m-5 col-10">
-                    {{ $dramas->links() }}
+                    {{ $dramas->links('vendor.pagination.bootstrap-4') }}
                 </div>
                 @endif
             </div>
