@@ -26,16 +26,16 @@ class DramasController extends Controller
             'drama_image' => 'file|image|mimes:jpeg,png'
         ]);
 
-        if ($file = $request->drama_image) {
-            //保存するファイルに名前をつける
-            $fileName = time() . '.' . $file->getClientOriginalExtension();
-            //Laravel直下のpublicディレクトリに新フォルダをつくり保存する
-            $target_path = public_path('/uploads/');
-            $file->move($target_path, $fileName);
-        } else {
-            //画像が登録されなかった時はから文字をいれる
-            $fileName = "";
-        }
+        //if ($file = $request->drama_image) {
+        //保存するファイルに名前をつける
+        //$fileName = time() . '.' . $file->getClientOriginalExtension();
+        //Laravel直下のpublicディレクトリに新フォルダをつくり保存する
+        //$target_path = public_path('/uploads/');
+        //$file->move($target_path, $fileName);
+        //} else {
+        //画像が登録されなかった時はから文字をいれる
+        //$fileName = "";
+        //}
 
         $dramas = new Drama;
         //インスタンスを生成
@@ -44,8 +44,10 @@ class DramasController extends Controller
         $dramas->drama_title = $request->drama_title;
         $dramas->category_name = $request->category_name;
         $dramas->drama_story = $request->drama_story;
-        $dramas->drama_image = $fileName;
-        //DBのdrama_imageに、$fileNameでつけたファイル名を保存
+        //$dramas->drama_image = $fileName;
+
+        $dramas->drama_image = base64_encode(file_get_contents($request->drama_image->getRealPath()));
+        //herokuデプロイの為、画像のバイナリーデータを直接入れてDBへ保存
         $dramas->save();
         //$dramas->fill($request->all())->save();
 

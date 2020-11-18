@@ -11,7 +11,7 @@
 
             <!--画像表示-->
             <div class="col-10 m-auto">
-                <img src="/uploads/{{ $dramas -> drama_image }}" style="height: 300px;">
+                <img src="data:image/png;base64,{{ $dramas -> drama_image }}" style="height: 300px;">
             </div>
             <div class="col-8 mt-5 text-center">
                 <a href="{{ route('dramas.review', $dramas->id) }}" class="col-8 btn btn-dark">{{ __('Write Review')  }}</a>

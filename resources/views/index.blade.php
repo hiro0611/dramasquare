@@ -59,8 +59,8 @@
                         <div class="card-body p-0 touch-list">
 
                             <!--画像-->
-                            <a href="{{ route('dramas.detail', $result->id) }}">
-                                <img src="/uploads/{{ $result -> drama_image }}" class="touch-image" style="height:250px; width:100%">
+                            <a href="{{ route('dramas.detail', $result -> id) }}">
+                                <img src="data:image/png;base64,{{ $result -> drama_image }}" class="touch-image" style="height:250px; width:100%">
                             </a>
 
                             <!--カテゴリー-->
@@ -95,7 +95,7 @@
 
                             <!--画像-->
                             <a href="{{ route('dramas.detail', $drama -> id) }}">
-                                <img src="/uploads/{{ $drama -> drama_image }}" class="touch-image" style="height:250px; width:100%">
+                                <img src="data:image/png;base64,{{ $drama -> drama_image }}" class="touch-image" style="height:250px; width:100%">
                             </a>
 
                             <!--カテゴリー-->
